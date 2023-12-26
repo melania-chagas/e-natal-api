@@ -6,14 +6,12 @@ const config = {
   password: process.env.MYSQL_ROOT_PASSWORD,
   database: process.env.MYSQL_DATABASE,
   host: process.env.MYSQL_HOST,
-  port: process.env.MYSQL_PORT, 
+  port: Number(process.env.MYSQL_PORT), 
   dialect: 'mysql',
   dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
+    timezone: 'Z',
   },
+  logging: false,
 };
 
 const sequelize = new Sequelize(config);
