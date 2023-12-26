@@ -1,17 +1,14 @@
-const {Ebook} = require('../../database/models');
-// const {Model} = require('sequelize');
+const { Ebook } = require('../../database/models');
 class EbookF extends Ebook {
   static async createEbook(title, author, genre) {
-    console.log('Valores recebidos:', {title, author, genre});
     try {
-      await Ebook.create({
+      const newEbook = await Ebook.create({
         title,
         author,
         genre
       });
-      console.log('ebook criado');
+      return newEbook.dataValues;
 
-      
     } catch (error) {
       console.error('Erro ao criar eBook:', error.message);
       console.error('Tipo de erro:', error.name);
