@@ -15,7 +15,7 @@ class EbookController {
       return res.status(statusCode).json(message);
     } catch (error) {
       console.error(error);
-      return res.status(ServerError).json({ 
+      return res.status(ServerError).json({
         error: error.message || serverErrorMsg
       });
     }

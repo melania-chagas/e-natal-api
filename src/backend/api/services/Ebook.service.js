@@ -5,7 +5,7 @@ const {
   OK,
   NoContent,
 } = require('../helpers/statusCodes');
-const { 
+const {
   ebookAlreadyRegisteredMsg,
 } = require('../helpers/errorMessages');
 

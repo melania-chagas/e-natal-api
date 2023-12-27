@@ -19,13 +19,15 @@ module.exports = {
       'no-unused-vars': 'error', // Erro se houver variáveis não utilizadas
       'no-multiple-empty-lines': ['error', { 'max': 2 }], /* Limite de 2 linhas
       em branco consecutivas*/
-      'import/no-unresolved': 'error', /* Gera erro se um módulo importado não 
+      'import/no-unresolved': 'error', /* Gera erro se um módulo importado não
       pode ser resolvido*/
-      'import/named': 'error', /* Gera erro se um membro nomeado em um módulo 
+      'import/named': 'error', /* Gera erro se um membro nomeado em um módulo
       importado não existe*/
-      'object-curly-spacing': ['error', 'always'], /* Exige espaço entre as 
+      'object-curly-spacing': ['error', 'always'], /* Exige espaço entre as
       chaves de um objeto*/
-      "eol-last": ["error", "always"] /* Exige uma linha em branco no final do 
+      "eol-last": ["error", "always"], /* Exige uma linha em branco no final do
       arquivo.*/
+      'no-trailing-spaces': ['error', { 'skipBlankLines': true }], /*Sinaliza
+      espaços em branco desnecessários*/
     },
   };
