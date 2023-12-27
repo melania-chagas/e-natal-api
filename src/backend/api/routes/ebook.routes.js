@@ -5,6 +5,6 @@ const basicAuth = require('../middlewares/validadeBasicAuth');
 
 const ebookRouter = express.Router();
 
-ebookRouter.post('/', basicAuth, validateEbook, createEbook);
+ebookRouter.post('/create', basicAuth, validateEbook, createEbook);
 
 module.exports = ebookRouter;
