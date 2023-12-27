@@ -2,7 +2,13 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  const Ebook = sequelize.define('Ebook', {
+  class Ebook extends Model {
+    static associate(models) {
+      Ebook.belongsToMany(models.User, { through: 'UserEbooks' });
+    }
+  }
+
+  Ebook.init({
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -12,7 +18,9 @@ module.exports = (sequelize, DataTypes) => {
     author: DataTypes.STRING,
     genre: DataTypes.STRING,
   }, {
-    timestamps: false, 
+    sequelize,
+    modelName: 'Ebook',
+    timestamps: false,
   });
 
   return Ebook;
