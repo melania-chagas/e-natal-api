@@ -12,6 +12,8 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 ```bash
     ssh: git clone git@github.com:melania-chagas/e-natal-api.git
+```
+```bash
     https: git clone https://github.com/melania-chagas/e-natal-api.git
 ```
 2. Entre no diretório do projeto:
