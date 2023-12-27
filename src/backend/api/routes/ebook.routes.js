@@ -1,10 +1,16 @@
 const express = require('express');
-const { createEbook } = require('../controllers/ebook.controller');
+const EbookController = require('../controllers/Ebook.controller');
 const validateEbook = require('../middlewares/validateEbook');
 const basicAuth = require('../middlewares/validadeBasicAuth');
 
 const ebookRouter = express.Router();
 
-ebookRouter.post('/create', basicAuth, validateEbook, createEbook);
+ebookRouter.get('/', EbookController.getAllBooks);
+ebookRouter.post(
+    '/create',
+    basicAuth,
+    validateEbook,
+    EbookController.createEbook
+);
 
 module.exports = ebookRouter;

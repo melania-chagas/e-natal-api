@@ -23,5 +23,9 @@ module.exports = {
       pode ser resolvido*/
       'import/named': 'error', /* Gera erro se um membro nomeado em um módulo 
       importado não existe*/
+      'object-curly-spacing': ['error', 'always'], /* Exige espaço entre as 
+      chaves de um objeto*/
+      "eol-last": ["error", "always"] /* Exige uma linha em branco no final do 
+      arquivo.*/
     },
   };

@@ -2,8 +2,8 @@ require('dotenv').config();
 
 const { Unauthorized } = require('../helpers/statusCodes');
 const { 
-  authRequired,
-  userUnauthorized,
+  authRequiredMsg,
+  userUnauthorizedMsg,
 } = require('../helpers/errorMessages');
 
 
@@ -11,7 +11,7 @@ const basicAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader || !authHeader.startsWith('Basic ')) {
-    return res.status(Unauthorized).json(authRequired);
+    return res.status(Unauthorized).json(authRequiredMsg);
   }
 
   const base64Credentials = authHeader.split(' ')[1];
@@ -26,7 +26,7 @@ const basicAuth = (req, res, next) => {
   if (username === authorizedUser && password === authorizedUserPassword) {
     next();
   } else {
-    res.status(Unauthorized).json(userUnauthorized);
+    res.status(Unauthorized).json(userUnauthorizedMsg);
   }
 };
 module.exports = basicAuth;

@@ -1,5 +1,5 @@
 const { Ebook } = require('../../database/models');
-class EbookF extends Ebook {
+class EbookModel extends Ebook {
   static async createEbook(title, author, genre) {
     try {
       const newEbook = await Ebook.create({
@@ -15,6 +15,12 @@ class EbookF extends Ebook {
       throw error;
     }
   }
+  static async getAllEbooks() {
+    const result = await Ebook.findAll();
+    const allBooks = result.map(({ dataValues }) => dataValues);
+    return allBooks;
+  }
+  
 }
 
-module.exports = EbookF;
+module.exports = EbookModel;
