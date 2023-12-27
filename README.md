@@ -27,7 +27,45 @@ Certifique-se de ter as seguintes ferramentas instaladas:
 
 ### Rest API
 
-#### Ebooks: http://localhost:3001/ebook
+#### 📚 Ebooks: http://localhost:3001/ebook
+<details>
+  <summary>Listar todos os ebooks</summary>
+
+#### Request
+`GET /`
+
+
+#### Response
+```json
+[
+  {
+    "id": 1,
+    "title": "Orgulho e Preconceito",
+    "author": "Jane Austen",
+    "genre": "Romance"
+  },
+  {
+    "id": 2,
+    "title": "Persuasão",
+    "author": "Jane Austen",
+    "genre": "Romance"
+  },
+  {
+    "id": 3,
+    "title": "Razão e sensibilidade",
+    "author": "Jane Austen",
+    "genre": "Romance"
+  },
+  {
+    "id": 4,
+    "title": "Emma",
+    "author": "Jane Austen",
+    "genre": "Romance"
+  }
+]
+```
+</details>
+
 <details>
   <summary>Cadastrar um novo ebook</summary>
 
