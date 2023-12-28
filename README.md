@@ -26,7 +26,7 @@ cd e-natal-api
 ### Execute a aplicação
 3. Inicie os serviços da aplicação via Docker:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 ---
 ### Rest API
