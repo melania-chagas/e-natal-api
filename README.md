@@ -1,31 +1,34 @@
 # e-natal-api
 Solução eficiente para o envio de ebooks (via e-mail) como presentes natalinos.
+***
 
 ### Requisitos
 Certifique-se de ter instalado:
 
 - [Docker](https://www.docker.com/)
 
+
 ### Instalação
 1. Clone o repositório:
-
+##### ssh
 ```bash
-    ssh: git clone git@github.com:melania-chagas/e-natal-api.git
+git clone git@github.com:melania-chagas/e-natal-api.git
 ```
+#### https
 ```bash
-    https: git clone https://github.com/melania-chagas/e-natal-api.git
+git clone https://github.com/melania-chagas/e-natal-api.git
 ```
 2. Entre no diretório do projeto:
 
 ```bash
-        cd e-natal-api
+cd e-natal-api
 ```
 ### Execute a aplicação
-3. Inicie os contêineres do Docker:
+3. Inicie os serviços da aplicação via Docker:
 ```bash
-    docker-compose up --build
+docker-compose up --build
 ```
-
+---
 ### Rest API
 
 #### 📚 Ebooks: http://localhost:3001/ebook
@@ -88,6 +91,57 @@ Certifique-se de ter instalado:
     "author": "Jane Austen",
     "genre": "Romance"
   }
+```
+</details>
+
+#### 📋 WaitingList: http://localhost:3001/waitingList
+<details>
+  <summary>Entrar na lista de espera de presentes</summary>
+
+#### Request
+`POST /waitingList`
+
+```json
+{
+  "name": "Melania Chagas",
+  "email": "melania@email.com",
+  "titles":["Orgulho e Preconceito", "Emma"]
+}
+```
+#### Response
+```json
+{
+  "name": "Melania Chagas",
+  "email": "melania@email.com",
+  "titleList": [
+    "Orgulho e Preconceito",
+    "Emma"
+  ]
+}
+```
+---
+#### Request
+`POST /waitingList`
+
+
+```json
+{
+  "name": "Melania Chagas",
+  "email": "melania@email.com",
+  "titles": "Persuasão"
+}
+```
+#### Response
+```json
+{
+  "name": "Melania Chagas",
+  "email": "melania@email.com",
+  "titleList": [
+    "Orgulho e Preconceito",
+    "Emma",
+    "Persuasão"
+  ]
+}
 ```
 </details>
 
