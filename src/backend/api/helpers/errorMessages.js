@@ -5,4 +5,5 @@ module.exports = {
     emptyFieldsMsg: 'Por favor, preencha todos os campos.',
     serverErrorMsg: 'Erro interno no servidor',
     ebookAlreadyRegisteredMsg: 'Ebook já cadastrado no banco de dados!',
+    invalidEmail: 'Email inválido!'
 };

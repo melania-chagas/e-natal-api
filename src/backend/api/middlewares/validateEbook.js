@@ -8,6 +8,6 @@ const validateEbook = (req, res, next) => {
     return res.status(BadRequest).json(emptyFieldsMsg);
   }
   next();
-  };
+};
   
 module.exports = validateEbook;
