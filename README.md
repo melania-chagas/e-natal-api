@@ -2,9 +2,8 @@
 Solução eficiente para o envio de ebooks (via e-mail) como presentes natalinos.
 
 ### Requisitos
-Certifique-se de ter as seguintes ferramentas instaladas:
+Certifique-se de ter instalado:
 
-- [Node.js](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
 
 ### Instalação
