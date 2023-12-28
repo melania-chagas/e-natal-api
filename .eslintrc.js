@@ -16,7 +16,8 @@ module.exports = {
     rules: {
       'max-len': ['error', { 'code': 80 }], // Limite de 80 caracteres por linha
       'semi': ['error', 'always'], // Exige ponto e vírgula
-      'no-unused-vars': 'error', // Erro se houver variáveis não utilizadas
+      'no-unused-vars': ['error', { varsIgnorePattern: '^_' }], /* Erro se
+      houver variáveis não utilizadas*/
       'no-multiple-empty-lines': ['error', { 'max': 2 }], /* Limite de 2 linhas
       em branco consecutivas*/
       'import/no-unresolved': 'error', /* Gera erro se um módulo importado não

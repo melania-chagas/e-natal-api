@@ -1,5 +1,5 @@
 module.exports = {
-    authRequiredMsg: 
+    authRequiredMsg:
     'É necessário estar autenticado para realizar esta operação',
     userUnauthorizedMsg: 'Usuário não autorizado',
     emptyFieldsMsg: 'Por favor, preencha todos os campos.',

@@ -2,26 +2,26 @@
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-
+  class Ebook extends Model {
     static associate(models) {
-      User.belongsToMany(models.Ebook, { through: 'UserEbooks' });
+      Ebook.belongsToMany(models.User, { through: 'WaitingList' });
     }
   }
 
-  User.init({
+  Ebook.init({
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
+    title: DataTypes.STRING,
+    author: DataTypes.STRING,
+    genre: DataTypes.STRING,
   }, {
     sequelize,
-    modelName: 'User',
+    modelName: 'Ebook',
     timestamps: false,
   });
 
-  return User;
+  return Ebook;
 };
