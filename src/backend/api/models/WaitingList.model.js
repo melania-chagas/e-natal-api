@@ -37,7 +37,6 @@ async function insertIntoTableWatingList(userId, ebookIdsList) {
 
 
 class WaitingListModel {
-
   static async addToWaitingList(name, email, titles) {
     const userId = await findOrCreateUser(name, email);
     const ebookIdsList = await findEbookIdByTitle(titles);
@@ -62,5 +61,4 @@ class WaitingListModel {
     });
   }
 }
-
 module.exports = WaitingListModel;

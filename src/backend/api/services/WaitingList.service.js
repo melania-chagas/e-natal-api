@@ -6,7 +6,6 @@ const {
 
 class WaitingListService {
   static async addToWaitingList(name, email, titles) {
-
     const userId = await WaitingListModel.addToWaitingList(name, email, titles);
 
     const titleList = await WaitingListModel
@@ -18,5 +17,4 @@ class WaitingListService {
     };
   }
 }
-
 module.exports = WaitingListService;

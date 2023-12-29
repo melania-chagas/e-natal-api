@@ -12,5 +12,4 @@ ebookRouter.post(
     validateEbook,
     EbookController.createEbook
 );
-
 module.exports = ebookRouter;
