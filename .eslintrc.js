@@ -8,6 +8,8 @@ module.exports = {
       'eslint:recommended',
       'plugin:import/errors',
       'plugin:import/warnings',
+      'plugins: ["jest"]',
+      'extends: ["plugin:jest/recommended"]'
     ],
     parserOptions: {
       ecmaVersion: 2021,
