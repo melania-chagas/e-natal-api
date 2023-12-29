@@ -7,18 +7,14 @@ const {
 class WaitingListService {
   static async addToWaitingList(name, email, titles) {
 
-    const titleList = await WaitingListModel.addToWaitingList(
-      name, email, titles
-    );
-    const response = {
-      name,
-      email,
-      titleList
-    };
+    const userId = await WaitingListModel.addToWaitingList(name, email, titles);
+
+    const titleList = await WaitingListModel
+      .findAllTitlesInListByUserId(userId);
 
     return {
       statusCode: Created,
-      message: response,
+      message: { name, email, titleList },
     };
   }
 }
