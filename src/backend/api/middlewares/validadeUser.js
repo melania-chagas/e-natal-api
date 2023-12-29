@@ -3,9 +3,9 @@ const { emptyFieldsMsg, invalidEmail } = require('../helpers/errorMessages');
 
 
 const validateUser = (req, res, next) => {
-  const { name, email } = req.body;
+  const { name, email, titles } = req.body;
 
-  if (!(name && email)) {
+  if (!(name && email && titles)) {
     return res.status(BadRequest).json(emptyFieldsMsg);
   }
   const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
