@@ -1,26 +1,25 @@
 const { Ebook } = require('../../database/models');
 class EbookModel extends Ebook {
-  static async createEbook(title, author, genre) {
-    try {
-      const newEbook = await Ebook.create({
-        title,
-        author,
-        genre
-      });
-      return newEbook.dataValues;
 
-    } catch (error) {
-      console.error('Erro ao criar eBook:', error.message);
-      console.error('Tipo de erro:', error.name);
-      throw error;
-    }
+  static async findEbookByTitle (title) {
+    const ebookAlreadyExists = await EbookModel.findOne({
+      where: {
+        title,
+      }
+    });
+    return ebookAlreadyExists;
   }
+
+
+  static async createEbook(title, author, genre) {
+    const newEbook = await Ebook.create({ title, author, genre });
+    return newEbook.dataValues;
+  }
+
+
   static async getAllEbooks() {
     const result = await Ebook.findAll();
-    const allBooks = result.map(({ dataValues }) => dataValues);
-    return allBooks;
+    return result.map(({ dataValues }) => dataValues);
   }
-  
 }
-
 module.exports = EbookModel;
