@@ -1,6 +1,7 @@
 const { BadRequest } = require('../helpers/statusCodes');
 const { emptyFieldsMsg, invalidEmail } = require('../helpers/errorMessages');
 
+
 const validateUser = (req, res, next) => {
   const { name, email } = req.body;
 

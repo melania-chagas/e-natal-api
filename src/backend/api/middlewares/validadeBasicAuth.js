@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { Unauthorized } = require('../helpers/statusCodes');
-const { 
+const {
   authRequiredMsg,
   userUnauthorizedMsg,
 } = require('../helpers/errorMessages');

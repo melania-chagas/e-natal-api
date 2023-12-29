@@ -1,6 +1,7 @@
 const { BadRequest } = require('../helpers/statusCodes');
 const { emptyFieldsMsg } = require('../helpers/errorMessages');
 
+
 const validateEbook = (req, res, next) => {
   const { title, author, genre } = req.body;
 
@@ -9,5 +10,4 @@ const validateEbook = (req, res, next) => {
   }
   next();
 };
-  
 module.exports = validateEbook;
