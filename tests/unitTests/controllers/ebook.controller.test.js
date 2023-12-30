@@ -1,7 +1,8 @@
 const EbookController = require('../../../src/backend/api/controllers/Ebook.controller');
 const EbookService = require('../../../src/backend/api/services/Ebook.service');
-const { validFieldsEbook, responseCreateEbook, errorCreateEbook, responseGetAllBooks, errorFindAllEbooks } = require('../mocks/middlewaresMocks');
-const { Created, ServerError, OK, serverErrorMsg } = require('../../../src/backend/api/helpers/statusCodes');
+const { validFieldsEbook, responseCreateEbook, errorCreateEbook, responseGetAllBooks, errorFindAllEbooks } = require('../mocks/mocks');
+const { Created, ServerError, OK } = require('../../../src/backend/api/helpers/statusCodes');
+const { serverErrorMsg } = require('../../../src/backend/api/helpers/errorMessages')
 
 jest.mock('../../../src/backend/api/services/Ebook.service');
 
