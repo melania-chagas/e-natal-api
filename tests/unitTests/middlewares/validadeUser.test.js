@@ -1,5 +1,5 @@
 const validateUser = require('../../../src/backend/api/middlewares/validadeUser');
-const {  invalidFieldsUser, invalidEmailUser, validFieldsUser } = require('./mocks/middlewaresMocks');
+const {  invalidFieldsUser, invalidEmailUser, validFieldsUser } = require('../mocks/middlewaresMocks');
 const { emptyFieldsMsg, invalidEmail } = require('../../../src/backend/api/helpers/errorMessages');
 const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
 

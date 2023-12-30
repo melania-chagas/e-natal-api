@@ -23,9 +23,9 @@ class EbookController {
   }
 
 
-  static async getAllBooks(_req, res) {
+  static async findAllEbooks(_req, res) {
     try {
-      const { statusCode, message } = await EbookService.getAllEbooks();
+      const { statusCode, message } = await EbookService.findAllEbooks();
       return res.status(statusCode).json(message);
 
     } catch (error) {

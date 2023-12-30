@@ -17,7 +17,7 @@ class EbookModel extends Ebook {
   }
 
 
-  static async getAllEbooks() {
+  static async findAllEbooks() {
     const result = await Ebook.findAll();
     return result.map(({ dataValues }) => dataValues);
   }

@@ -5,7 +5,7 @@ const basicAuth = require('../middlewares/validadeBasicAuth');
 
 const ebookRouter = express.Router();
 
-ebookRouter.get('/', EbookController.getAllBooks);
+ebookRouter.get('/', EbookController.findAllEbooks);
 ebookRouter.post(
     '/create',
     basicAuth,

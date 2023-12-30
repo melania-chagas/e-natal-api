@@ -42,6 +42,31 @@ const generateAuthHeader = (username, password) => {
     return 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64');
 };
 
+const responseCreateEbook = {
+    "id": 1,
+    title: "Orgulho e Preconceito",
+    author: "Jane Austen",
+    genre: "Romance"
+}
+
+const errorCreateEbook = 'Erro durante a criação do ebook'
+
+const responseGetAllBooks = [
+    {
+        "id": 1,
+        title: "Orgulho e Preconceito",
+        author: "Jane Austen",
+        genre: "Romance"
+    },
+    {
+        "id": 2,
+        title: "Persuasão",
+        author: "Jane Austen",
+        genre: "Romance"
+    }
+]
+
+const errorFindAllEbooks = 'Erro durante a busca por todos os ebooks'
 
 module.exports = {
     validFieldsEbook,
@@ -54,5 +79,9 @@ module.exports = {
     password,
     invalidUsername,
     invalidPassword,
-    generateAuthHeader
+    generateAuthHeader,
+    responseCreateEbook,
+    errorCreateEbook,
+    responseGetAllBooks,
+    errorFindAllEbooks
 }

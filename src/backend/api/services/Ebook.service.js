@@ -20,8 +20,8 @@ class EbookService {
   }
 
 
-  static async getAllEbooks() {
-    const allBooks = await EbookModel.getAllEbooks();
+  static async findAllEbooks() {
+    const allBooks = await EbookModel.findAllEbooks();
     if (!allBooks.length) {
       return {
         statusCode: NoContent,

@@ -7,7 +7,7 @@ const {
     invalidUsername,
     invalidPassword,
     generateAuthHeader
-} = require('./mocks/middlewaresMocks');
+} = require('../mocks/middlewaresMocks');
 
 const { authRequiredMsg, userUnauthorizedMsg } = require('../../../src/backend/api/helpers/errorMessages');
 const { BadRequest, Unauthorized } = require('../../../src/backend/api/helpers/statusCodes');
