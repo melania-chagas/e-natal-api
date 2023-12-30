@@ -1,5 +1,5 @@
 const validateEbook = require('../../../src/backend/api/middlewares/validateEbook');
-const { validFieldsEbook, invalidFieldsEbook, va } = require('./mocks/middlewaresMocks');
+const { validFieldsEbook, invalidFieldsEbook } = require('./mocks/middlewaresMocks');
 const { emptyFieldsMsg } = require('../../../src/backend/api/helpers/errorMessages');
 const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
 

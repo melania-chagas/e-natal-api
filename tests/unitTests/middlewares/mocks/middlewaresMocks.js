@@ -1,3 +1,6 @@
+require('dotenv').config();
+
+
 const validFieldsEbook= {
     title: "Orgulho e Preconceito",
     author: "Jane Austen",
@@ -27,10 +30,29 @@ const invalidEmailUser = {
     titles: "Orgulho e Preconceito"
 }
 
+const emptyHeaderAuth = {}
+
+const username = process.env.AUTHORIZED_USER;
+const password = process.env.AUTHORIZED_USER_PASSWORD;
+
+const invalidUsername = 'melania';
+const invalidPassword = '123456'
+
+const generateAuthHeader = (username, password) => {
+    return 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64');
+};
+
+
 module.exports = {
     validFieldsEbook,
     invalidFieldsEbook,
     validFieldsUser,
     invalidFieldsUser,
-    invalidEmailUser
+    invalidEmailUser,
+    emptyHeaderAuth,
+    username,
+    password,
+    invalidUsername,
+    invalidPassword,
+    generateAuthHeader
 }
