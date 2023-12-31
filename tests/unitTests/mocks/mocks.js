@@ -68,6 +68,24 @@ const responseGetAllBooks = [
 
 const errorFindAllEbooks = 'Erro durante a busca por todos os ebooks'
 
+const validFieldsAddToWaitingList = {
+    "name": "Melania Chagas",
+    "email": "melania@email.com",
+    "titles": ["Crime e castigo", "Persuasão"]
+}
+
+const responseAddToWaitingList = {
+    "name": "Melania Chagas",
+    "email": "melania@email.com",
+    "titleList": [
+      "Crime e Castigo",
+      "Persuasão"
+    ]
+}
+
+const errorAddToWaitingList = 'Erro durante o cadastro na lista de espera'
+
+
 module.exports = {
     validFieldsEbook,
     invalidFieldsEbook,
@@ -83,5 +101,8 @@ module.exports = {
     responseCreateEbook,
     errorCreateEbook,
     responseGetAllBooks,
-    errorFindAllEbooks
+    errorFindAllEbooks,
+    validFieldsAddToWaitingList,
+    responseAddToWaitingList,
+    errorAddToWaitingList
 }
