@@ -9,11 +9,12 @@ Certifique-se de ter instalado:
 
 
 ### Instalação
-1. Clone o repositório:
+1. Clone o repositório (via ssh ou https):
 ##### ssh
 ```bash
 git clone git@github.com:melania-chagas/e-natal-api.git
 ```
+
 #### https
 ```bash
 git clone https://github.com/melania-chagas/e-natal-api.git
@@ -23,10 +24,13 @@ git clone https://github.com/melania-chagas/e-natal-api.git
 ```bash
 cd e-natal-api
 ```
+
+### Configure as variáveis de ambiente
+3. Renomeie o arquivo '.env.example', que está na raiz do projeto, para '.env'.
 ### Execute a aplicação
-3. Inicie os serviços da aplicação via Docker:
+4. Inicie os serviços da aplicação via Docker:
 ```bash
-docker compose up --build
+docker compose up
 ```
 ---
 ### Rest API
