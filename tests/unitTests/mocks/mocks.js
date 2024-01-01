@@ -78,13 +78,21 @@ const responseAddToWaitingList = {
     "name": "Melania Chagas",
     "email": "melania@email.com",
     "titleList": [
-      "Crime e Castigo",
-      "Persuasão"
+      "Crime e castigo",
+      "Persuasão",
+      "Emma"
     ]
 }
 
+const userId = 5
+
 const errorAddToWaitingList = 'Erro durante o cadastro na lista de espera'
 
+const titleList = [
+    "Crime e castigo",
+    "Persuasão",
+    "Emma"
+]
 
 
 module.exports = {
@@ -106,4 +114,6 @@ module.exports = {
     validFieldsAddToWaitingList,
     responseAddToWaitingList,
     errorAddToWaitingList,
+    userId,
+    titleList
 }
