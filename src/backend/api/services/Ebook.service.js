@@ -21,15 +21,15 @@ class EbookService {
 
 
   static async findAllEbooks() {
-    const allBooks = await EbookModel.findAllEbooks();
-    if (!allBooks.length) {
+    const allEbooks = await EbookModel.findAllEbooks();
+    if (!allEbooks.length) {
       return {
         statusCode: NoContent,
       };
     }
     return {
       statusCode: OK,
-      message: allBooks,
+      message: allEbooks,
     };
   }
 }

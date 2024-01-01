@@ -51,7 +51,7 @@ const responseCreateEbook = {
 
 const errorCreateEbook = 'Erro durante a criação do ebook'
 
-const responseGetAllBooks = [
+const responseFindAllBooks = [
     {
         "id": 1,
         title: "Orgulho e Preconceito",
@@ -86,6 +86,7 @@ const responseAddToWaitingList = {
 const errorAddToWaitingList = 'Erro durante o cadastro na lista de espera'
 
 
+
 module.exports = {
     validFieldsEbook,
     invalidFieldsEbook,
@@ -100,9 +101,9 @@ module.exports = {
     generateAuthHeader,
     responseCreateEbook,
     errorCreateEbook,
-    responseGetAllBooks,
+    responseFindAllBooks,
     errorFindAllEbooks,
     validFieldsAddToWaitingList,
     responseAddToWaitingList,
-    errorAddToWaitingList
+    errorAddToWaitingList,
 }
