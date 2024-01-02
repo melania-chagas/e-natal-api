@@ -23,9 +23,9 @@
   "jest": {
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-     "tests",
-     "src/backend/database",
-     "src/backend/api/helpers"
+      "tests",
+      "src/backend/database",
+      "src/backend/api/helpers"
     ]
   }
 }

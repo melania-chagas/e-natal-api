@@ -1,8 +1,10 @@
 const { Ebook } = require('../../database/models');
-class EbookModel extends Ebook {
+
+
+class EbookModel {
 
   static async findEbookByTitle (title) {
-    const ebookAlreadyExists = await EbookModel.findOne({
+    const ebookAlreadyExists = await Ebook.findOne({
       where: {
         title,
       }

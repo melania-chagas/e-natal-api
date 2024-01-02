@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-
 const validFieldsEbook= {
     title: "Orgulho e Preconceito",
     author: "Jane Austen",
@@ -94,6 +93,53 @@ const titleList = [
     "Emma"
 ]
 
+const title = "Orgulho e Preconceito"
+
+const ebookAlreadyExists = {
+    id: 1,
+    title: "Orgulho e Preconceito",
+    author: "Jane Austen",
+    genre: "Romance"
+}
+
+const responseFindEbookByTitle = {
+    id: 1,
+    title: "Orgulho e Preconceito",
+    author: "Jane Austen",
+    genre: "Romance"
+}
+
+const ebooksData = [
+    {
+      dataValues: { id: 1, title: 'Orgulho e Preconceito', author: 'Jane Austen', genre: 'Romance' },
+      _previousDataValues: { id: 1, title: 'Orgulho e Preconceito', author: 'Jane Austen', genre: 'Romance' },
+      uniqno: 1,
+      _changed: new Set(),
+      _options: {
+        isNewRecord: false,
+        _schema: null,
+        _schemaDelimiter: '',
+        raw: true,
+        attributes: ['id', 'title', 'author', 'genre'],
+      },
+      isNewRecord: false,
+    },
+    {
+        dataValues: { id: 2, title: 'Persuasão', author: 'Jane Austen', genre: 'Romance' },
+        _previousDataValues: { id: 2, title: 'Persuasão', author: 'Jane Austen', genre: 'Romance' },
+        uniqno: 1,
+        _changed: new Set(),
+        _options: {
+          isNewRecord: false,
+          _schema: null,
+          _schemaDelimiter: '',
+          raw: true,
+          attributes: ['id', 'title', 'author', 'genre'],
+        },
+        isNewRecord: false,
+      },
+];
+
 
 module.exports = {
     validFieldsEbook,
@@ -115,5 +161,9 @@ module.exports = {
     responseAddToWaitingList,
     errorAddToWaitingList,
     userId,
-    titleList
+    titleList,
+    title,
+    ebookAlreadyExists,
+    responseFindEbookByTitle,
+    ebooksData
 }
