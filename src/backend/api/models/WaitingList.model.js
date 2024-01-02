@@ -1,42 +1,9 @@
-const { User, Ebook, WaitingList } = require('../../database/models');
-
-async function findOrCreateUser(name, email) {
-  const result = await User.findOne({
-    attributes: ['id'],
-    where: { email }
-  });
-  if(result){
-    const { dataValues } = result;
-    return dataValues.id;
-  }
-  const newUser = await User.create({ name, email });
-  const { dataValues } = newUser;
-  return dataValues.id;
-}
-
-
-async function findEbookIdByTitle(titles) {
-  const result = await Ebook.findAll({
-    attributes: ['id'],
-    where: {
-      title: titles,
-    }
-  });
-  return result.map(({ dataValues }) => dataValues.id);
-}
-
-
-async function insertIntoTableWatingList(userId, ebookIdsList) {
-  await Promise.all(
-    ebookIdsList.map(async (ebookId) => {
-      await WaitingList.findOrCreate({
-        where: { UserId: userId, EbookId: ebookId },
-      });
-    }));
-}
+const { Ebook, WaitingList } = require('../../database/models');
+const { findOrCreateUser, findEbookIdByTitle, insertIntoTableWatingList} = require('./waitingListHelpers');
 
 
 class WaitingListModel {
+
   static async addToWaitingList(name, email, titles) {
     const userId = await findOrCreateUser(name, email);
     const ebookIdsList = await findEbookIdByTitle(titles);
@@ -56,6 +23,7 @@ class WaitingListModel {
       attributes: ['title'],
       where: { id: ebookIdsList },
     });
+
     return titles.map(({ dataValues }) => {
       return dataValues.title;
     });

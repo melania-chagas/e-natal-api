@@ -130,17 +130,122 @@ const ebooksData = [
         uniqno: 1,
         _changed: new Set(),
         _options: {
-          isNewRecord: false,
-          _schema: null,
-          _schemaDelimiter: '',
-          raw: true,
-          attributes: ['id', 'title', 'author', 'genre'],
+            isNewRecord: false,
+            _schema: null,
+            _schemaDelimiter: '',
+            raw: true,
+            attributes: ['id', 'title', 'author', 'genre'],
         },
         isNewRecord: false,
-      },
+    },
 ];
 
+const userData = {
+    dataValues: { id: 4 },
+    _previousDataValues: { id: 4 },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+         isNewRecord: false,
+         _schema: null,
+         _schemaDelimiter: '',
+         raw: true,
+         attributes: [ 'id' ]
+    },
+    isNewRecord: false
+}
 
+const newUserFields = {
+    name: "Luiz Chagas",
+    email: "luiz@email.com"
+}
+
+const newUserCreated =  {
+    dataValues: { id: 7, name: 'Luiz Chagas', email: 'luiz@email.com' },
+    _previousDataValues: { name: 'Luiz Chagas', email: 'luiz@email.com', id: 7 },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+        isNewRecord: true,
+        _schema: null,
+        _schemaDelimiter: '',
+        attributes: undefined,
+        include: undefined,
+        raw: undefined,
+        silent: undefined
+    },
+    isNewRecord: false
+}
+
+const responseFindEbookIdByTitle = [
+    {
+    dataValues: { id: 3 },
+    _previousDataValues: { id: 3 },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+        isNewRecord: false,
+        _schema: null,
+        _schemaDelimiter: '',
+        raw: true,
+        attributes: [Array]
+    },
+    isNewRecord: false
+    },
+    {
+    dataValues: { id: 6 },
+    _previousDataValues: { id: 6 },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+        isNewRecord: false,
+        _schema: null,
+        _schemaDelimiter: '',
+        raw: true,
+        attributes: [Array]
+    },
+    isNewRecord: false
+    }
+]
+
+const ebookIdList = [3,6]
+
+const userBooks = [
+    {
+        dataValues: { EbookId: 3 },
+        _previousDataValues: { EbookId: 3 },
+        uniqno: 1,
+        _changed: new Set(),
+        _options: {
+            isNewRecord: false,
+            _schema: null,
+            _schemaDelimiter: '',
+            raw: true,
+            attributes: [Array]
+        },
+        isNewRecord: false
+    }
+]
+
+const userTitles =  [
+    {
+        dataValues: { title: 'Emma' },
+        _previousDataValues: { title: 'Emma' },
+        uniqno: 1,
+        _changed: new Set(),
+        _options: {
+            isNewRecord: false,
+            _schema: null,
+            _schemaDelimiter: '',
+            raw: true,
+            attributes: [Array]
+        },
+        isNewRecord: false
+    }
+]
+
+const responseFindAllTitlesInListByUserId = ["Emma"]
+    
 module.exports = {
     validFieldsEbook,
     invalidFieldsEbook,
@@ -165,5 +270,13 @@ module.exports = {
     title,
     ebookAlreadyExists,
     responseFindEbookByTitle,
-    ebooksData
+    ebooksData,
+    userData,
+    newUserCreated,
+    newUserFields,
+    responseFindEbookIdByTitle,
+    ebookIdList,
+    userBooks,
+    userTitles,
+    responseFindAllTitlesInListByUserId
 }

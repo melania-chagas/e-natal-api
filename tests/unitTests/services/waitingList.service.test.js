@@ -6,6 +6,7 @@ const { Created } = require('../../../src/backend/api/helpers/statusCodes');
 jest.mock('../../../src/backend/api/models/WaitingList.model.js');
 
 describe('Testes para WaitingListService.addToWaitingList', () => {
+    
     test("Deve retornar statusCode 'Created' e uma mensagem contendo 'name', 'email e 'titleList' - que representa todos os livros que este usuário já inseriu na lista de espera", async () => {
         const { name, email, titles } = validFieldsAddToWaitingList;
 
