@@ -1,5 +1,5 @@
 const validateBasicAuth = require(
-  '../../../src/backend/api/middlewares/validateBasicAuth'
+  '../../../src/middlewares/validateBasicAuth'
 );
 const {
   emptyHeaderAuth,
@@ -10,10 +10,10 @@ const {
   generateAuthHeader
 } = require('../mocks/mocks');
 const { authRequiredMsg, userUnauthorizedMsg } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
 const { Unauthorized } = require(
-  '../../../src/backend/api/helpers/statusCodes'
+  '../../../src/helpers/statusCodes'
 );
 
 

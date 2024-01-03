@@ -1,8 +1,8 @@
 const EbookController = require(
-  '../../../src/backend/api/controllers/Ebook.controller'
+  '../../../src/controllers/Ebook.controller'
 );
 const EbookService = require(
-  '../../../src/backend/api/services/Ebook.service'
+  '../../../src/services/Ebook.service'
 );
 const {
   validFieldsEbook,
@@ -12,13 +12,13 @@ const {
   errorFindAllEbooks
 } = require('../mocks/mocks');
 const { Created, ServerError, OK } = require(
-  '../../../src/backend/api/helpers/statusCodes'
+  '../../../src/helpers/statusCodes'
 );
 const { serverErrorMsg } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
 
-jest.mock('../../../src/backend/api/services/Ebook.service');
+jest.mock('../../../src/services/Ebook.service');
 
 // para não imprimir os console.error no terminal dos testes
 jest.spyOn(console, 'error').mockImplementation(() => {});

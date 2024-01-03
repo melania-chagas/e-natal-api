@@ -1,4 +1,4 @@
-const { User, Ebook, WaitingList } = require('../../database/models');
+const { User, Ebook, WaitingList } = require('../database/models');
 
 
 async function findOrCreateUser(name, email) {

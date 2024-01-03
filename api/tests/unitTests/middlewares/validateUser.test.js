@@ -1,13 +1,13 @@
 const validateUser = require(
-  '../../../src/backend/api/middlewares/validateUser'
+  '../../../src/middlewares/validateUser'
 );
 const {  invalidFieldsUser, invalidEmailUser, validFieldsUser } = require(
   '../mocks/mocks'
 );
 const { emptyFieldsMsg, invalidEmail } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
-const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
+const { BadRequest } = require('../../../src/helpers/statusCodes');
 
 
 describe("Testes para o middleware validateUser", () => {

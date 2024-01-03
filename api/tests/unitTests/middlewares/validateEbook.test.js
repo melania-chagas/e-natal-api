@@ -1,11 +1,11 @@
 const validateEbook = require(
-  '../../../src/backend/api/middlewares/validateEbook'
+  '../../../src/middlewares/validateEbook'
 );
 const { validFieldsEbook, invalidFieldsEbook } = require('../mocks/mocks');
 const { emptyFieldsMsg } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
-const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
+const { BadRequest } = require('../../../src/helpers/statusCodes');
 
 
 describe("Testes para o middleware validateEbook", () => {

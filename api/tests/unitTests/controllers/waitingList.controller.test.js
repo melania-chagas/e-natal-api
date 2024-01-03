@@ -1,8 +1,8 @@
 const WaitingListController = require(
-  '../../../src/backend/api/controllers/WaitingList.controller'
+  '../../../src/controllers/WaitingList.controller'
 );
 const WaitingListService = require(
-  '../../../src/backend/api/services/WaitingList.service'
+  '../../../src/services/WaitingList.service'
 );
 const {
   validFieldsAddToWaitingList,
@@ -10,13 +10,13 @@ const {
   errorAddToWaitingList
 } = require('../mocks/mocks');
 const { Created, ServerError } = require(
-  '../../../src/backend/api/helpers/statusCodes'
+  '../../../src/helpers/statusCodes'
 );
 const { serverErrorMsg } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
 
-jest.mock('../../../src/backend/api/services/WaitingList.service');
+jest.mock('../../../src/services/WaitingList.service');
 
 // para não imprimir os console.error no terminal dos testes
 jest.spyOn(console, 'error').mockImplementation(() => {});

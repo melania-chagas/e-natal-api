@@ -1,8 +1,8 @@
 const WaitingListService = require(
-  '../../../src/backend/api/services/WaitingList.service'
+  '../../../src/services/WaitingList.service'
 );
 const WaitingListModel = require(
-  '../../../src/backend/api/models/WaitingList.model'
+  '../../../src/models/WaitingList.model'
 );
 const {
   validFieldsAddToWaitingList,
@@ -10,9 +10,9 @@ const {
   responseAddToWaitingList,
   titleList
 } = require('../mocks/mocks');
-const { Created } = require('../../../src/backend/api/helpers/statusCodes');
+const { Created } = require('../../../src/helpers/statusCodes');
 
-jest.mock('../../../src/backend/api/models/WaitingList.model.js');
+jest.mock('../../../src/models/WaitingList.model.js');
 
 
 describe('Testes para WaitingListService.addToWaitingList', () => {

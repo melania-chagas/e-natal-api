@@ -2,7 +2,7 @@ const {
   findOrCreateUser,
   findEbookIdByTitle,
   insertIntoTableWatingList
-} = require('../../../src/backend/api/models/waitingListHelpers');
+} = require('../../../src/models/waitingListHelpers');
 const {
   validFieldsUser,
   userData,
@@ -13,11 +13,11 @@ const {
   ebookIdList
 } = require('../mocks/mocks');
 const { User, Ebook, WaitingList  } = require(
-  '../../../src/backend/database/models'
+  '../../../src/database/models'
 );
 
 
-jest.mock('../../../src/backend/database/models', () => ({
+jest.mock('../../../src/database/models', () => ({
   Ebook: {
     findOne: jest.fn(),
     create: jest.fn(),

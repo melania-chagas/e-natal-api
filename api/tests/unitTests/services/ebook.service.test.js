@@ -1,18 +1,18 @@
-const EbookService = require('../../../src/backend/api/services/Ebook.service');
-const EbookModel = require('../../../src/backend/api/models/Ebook.model');
+const EbookService = require('../../../src/services/Ebook.service');
+const EbookModel = require('../../../src/models/Ebook.model');
 const {
   validFieldsEbook,
   responseCreateEbook,
   responseFindAllBooks
 } = require('../mocks/mocks');
 const { ebookAlreadyRegisteredMsg } = require(
-  '../../../src/backend/api/helpers/errorMessages'
+  '../../../src/helpers/errorMessages'
 );
 const { Conflict, Created, OK, NoContent } = require(
-  '../../../src/backend/api/helpers/statusCodes'
+  '../../../src/helpers/statusCodes'
 );
 
-jest.mock('../../../src/backend/api/models/Ebook.model.js');
+jest.mock('../../../src/models/Ebook.model.js');
 
 
 describe('Testes para EbookService.createEbook', () => {

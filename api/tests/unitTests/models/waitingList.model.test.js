@@ -1,5 +1,5 @@
 const WaitingListModel = require(
-  '../../../src/backend/api/models/WaitingList.model'
+  '../../../src/models/WaitingList.model'
 );
 const {
   validFieldsUser,
@@ -13,17 +13,17 @@ const {
   findOrCreateUser,
   findEbookIdByTitle,
   insertIntoTableWatingList
-} = require('../../../src/backend/api/models/waitingListHelpers');
-const { WaitingList, Ebook } = require('../../../src/backend/database/models');
+} = require('../../../src/models/waitingListHelpers');
+const { WaitingList, Ebook } = require('../../../src/database/models');
 
 
-jest.mock('../../../src/backend/api/models/waitingListHelpers', () => ({
+jest.mock('../../../src/models/waitingListHelpers', () => ({
   findOrCreateUser: jest.fn(),
   findEbookIdByTitle: jest.fn(),
   insertIntoTableWatingList: jest.fn(),
 }));
 
-jest.mock('../../../src/backend/database/models', () => ({
+jest.mock('../../../src/database/models', () => ({
   WaitingList: {
     findAll: jest.fn(),
   },

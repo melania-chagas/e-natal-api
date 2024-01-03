@@ -1,4 +1,4 @@
-const { Ebook, WaitingList } = require('../../database/models');
+const { Ebook, WaitingList } = require('../database/models');
 const {
   findOrCreateUser,
   findEbookIdByTitle,

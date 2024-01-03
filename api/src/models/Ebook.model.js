@@ -1,4 +1,4 @@
-const { Ebook } = require('../../database/models');
+const { Ebook } = require('../database/models');
 
 
 class EbookModel {

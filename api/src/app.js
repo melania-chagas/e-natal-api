@@ -1,6 +1,6 @@
 const express = require('express');
-const ebookRouter = require('./api/routes/ebook.routes');
-const waitingListRouter = require('./api/routes/waitingList.router');
+const ebookRouter = require('./routes/ebook.routes');
+const waitingListRouter = require('./routes/waitingList.router');
 
 const app = express();
 

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon src/backend/server.js",
+    "dev": "nodemon api/src/server.js",
     "lint": "eslint",
     "test": "jest --verbose"
   },
@@ -23,8 +23,8 @@
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "tests",
-      "src/backend/database",
-      "src/backend/api/helpers"
+      "src/database",
+      "src/helpers"
     ]
   }
 }

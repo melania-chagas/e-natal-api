@@ -1,4 +1,4 @@
-const EbookModel = require('../../../src/backend/api/models/Ebook.model');
+const EbookModel = require('../../../src/models/Ebook.model');
 const {
   validFieldsEbook,
   ebookAlreadyExists,
@@ -6,10 +6,10 @@ const {
   ebooksData,
   responseFindAllBooks
 } = require('../mocks/mocks');
-const { Ebook } = require('../../../src/backend/database/models');
+const { Ebook } = require('../../../src/database/models');
 
 
-jest.mock('../../../src/backend/database/models', () => ({
+jest.mock('../../../src/database/models', () => ({
   Ebook: {
     findOne: jest.fn(),
     create: jest.fn(),
