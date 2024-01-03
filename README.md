@@ -80,6 +80,8 @@ docker compose up
 #### Request
 `POST /create`
 
+Preencha a autenticação básica com os dados do Santa Claus presentes no arquivo '.env'.
+
 ```json
   {
     "title": "Orgulho e Preconceito",
