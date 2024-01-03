@@ -1,6 +1,6 @@
 const express = require('express');
 const WaitingListController = require('../controllers/WaitingList.controller');
-const validateUser = require('../middlewares/validadeUser');
+const validateUser = require('../middlewares/validateUser');
 
 const waitingList = express.Router();
 

@@ -1,5 +1,5 @@
 const validateUser = require(
-  '../../../src/backend/api/middlewares/validadeUser'
+  '../../../src/backend/api/middlewares/validateUser'
 );
 const {  invalidFieldsUser, invalidEmailUser, validFieldsUser } = require(
   '../mocks/mocks'
@@ -10,7 +10,7 @@ const { emptyFieldsMsg, invalidEmail } = require(
 const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
 
 
-describe("Testes para o middleware validadeUser", () => {
+describe("Testes para o middleware validateUser", () => {
   test(`Deve retornar a mensagem 'Por favor, preencha todos os campos.' e 
   statusCode 'Bad Request' se algum campo não for preenchido`, () => {
     const { name, email, titles } = invalidFieldsUser;

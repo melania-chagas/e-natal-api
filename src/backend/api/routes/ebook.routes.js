@@ -1,7 +1,7 @@
 const express = require('express');
 const EbookController = require('../controllers/Ebook.controller');
 const validateEbook = require('../middlewares/validateEbook');
-const basicAuth = require('../middlewares/validadeBasicAuth');
+const basicAuth = require('../middlewares/validateBasicAuth');
 
 const ebookRouter = express.Router();
 

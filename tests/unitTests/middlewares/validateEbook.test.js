@@ -8,7 +8,7 @@ const { emptyFieldsMsg } = require(
 const { BadRequest } = require('../../../src/backend/api/helpers/statusCodes');
 
 
-describe("Testes para o middleware validadeEbook", () => {
+describe("Testes para o middleware validateEbook", () => {
   test(`A função 'next' deve ser chamada se os campos title, author e genre
   estiverem preenchidos`, () => {
     const { title, author, genre } = validFieldsEbook;

@@ -1,5 +1,5 @@
 const validateBasicAuth = require(
-  '../../../src/backend/api/middlewares/validadeBasicAuth'
+  '../../../src/backend/api/middlewares/validateBasicAuth'
 );
 const {
   emptyHeaderAuth,
@@ -17,7 +17,7 @@ const { Unauthorized } = require(
 );
 
 
-describe("Testes para o middleware validadeBasicAuth", () => {
+describe("Testes para o middleware validateBasicAuth", () => {
   test(`Deve retornar a mensagem 'É necessário estar autenticado para realizar
   esta operação' e statusCode 'Unauthorized' se nenhum cabeçalho de
   autorização for fornecido`, () => {
