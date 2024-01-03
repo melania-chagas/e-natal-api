@@ -4,6 +4,7 @@ const { ebookAlreadyRegisteredMsg } = require('../helpers/errorMessages');
 
 
 class EbookService {
+
   static async createEbook(title, author, genre) {
     const ebookAlreadyExists = await EbookModel.findEbookByTitle(title);
     if(ebookAlreadyExists) {
@@ -33,4 +34,5 @@ class EbookService {
     };
   }
 }
+
 module.exports = EbookService;

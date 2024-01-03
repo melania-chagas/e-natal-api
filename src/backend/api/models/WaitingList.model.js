@@ -1,5 +1,9 @@
 const { Ebook, WaitingList } = require('../../database/models');
-const { findOrCreateUser, findEbookIdByTitle, insertIntoTableWatingList} = require('./waitingListHelpers');
+const {
+  findOrCreateUser,
+  findEbookIdByTitle,
+  insertIntoTableWatingList
+} = require('./waitingListHelpers');
 
 
 class WaitingListModel {
@@ -29,4 +33,5 @@ class WaitingListModel {
     });
   }
 }
+
 module.exports = WaitingListModel;

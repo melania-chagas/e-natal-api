@@ -1,23 +1,40 @@
-const WaitingListService = require('../../../src/backend/api/services/WaitingList.service');
-const WaitingListModel = require('../../../src/backend/api/models/WaitingList.model');
-const { validFieldsAddToWaitingList, userId, responseAddToWaitingList, titleList } = require('../mocks/mocks');
+const WaitingListService = require(
+  '../../../src/backend/api/services/WaitingList.service'
+);
+const WaitingListModel = require(
+  '../../../src/backend/api/models/WaitingList.model'
+);
+const {
+  validFieldsAddToWaitingList,
+  userId,
+  responseAddToWaitingList,
+  titleList
+} = require('../mocks/mocks');
 const { Created } = require('../../../src/backend/api/helpers/statusCodes');
 
 jest.mock('../../../src/backend/api/models/WaitingList.model.js');
 
+
 describe('Testes para WaitingListService.addToWaitingList', () => {
     
-    test("Deve retornar statusCode 'Created' e uma mensagem contendo 'name', 'email e 'titleList' - que representa todos os livros que este usuário já inseriu na lista de espera", async () => {
-        const { name, email, titles } = validFieldsAddToWaitingList;
+  test(`Deve retornar statusCode 'Created' e uma mensagem contendo
+  'name', 'email e 'titleList', que representa todos os livros que este
+  usuário já inseriu na lista de espera`, async () => {
+    const { name, email, titles } = validFieldsAddToWaitingList;
 
-        WaitingListModel.addToWaitingList.mockResolvedValueOnce(userId);
-        WaitingListModel.findAllTitlesInListByUserId.mockResolvedValueOnce(titleList);
+    WaitingListModel.addToWaitingList.mockResolvedValueOnce(userId);
+    WaitingListModel.findAllTitlesInListByUserId
+      .mockResolvedValueOnce(titleList);
 
-        const result = await WaitingListService.addToWaitingList(name, email, titles);
+    const result = await WaitingListService
+      .addToWaitingList(name, email, titles);
 
-        expect(WaitingListModel.addToWaitingList).toHaveBeenCalledWith(name, email, titles);
-        expect(WaitingListModel.findAllTitlesInListByUserId).toHaveBeenCalledWith(userId);
-        expect(result.statusCode).toBe(Created);
-        expect(result.message).toEqual(responseAddToWaitingList);
-    });
+    expect(WaitingListModel.addToWaitingList)
+      .toHaveBeenCalledWith(name, email, titles);
+    expect(WaitingListModel.findAllTitlesInListByUserId)
+      .toHaveBeenCalledWith(userId);
+    expect(result.statusCode).toBe(Created);
+    expect(result.message).toEqual(responseAddToWaitingList);
+  });
+
 });

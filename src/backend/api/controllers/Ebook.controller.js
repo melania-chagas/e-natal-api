@@ -4,6 +4,7 @@ const { serverErrorMsg } = require('../helpers/errorMessages');
 
 
 class EbookController {
+
   static async createEbook(req, res) {
     try {
       const { title, author, genre } = req.body;
@@ -13,7 +14,6 @@ class EbookController {
         genre
       );
       return res.status(statusCode).json(message);
-
     } catch (error) {
       console.error(error);
       return res.status(ServerError).json({
@@ -22,12 +22,11 @@ class EbookController {
     }
   }
 
-
+  
   static async findAllEbooks(_req, res) {
     try {
       const { statusCode, message } = await EbookService.findAllEbooks();
       return res.status(statusCode).json(message);
-
     } catch (error) {
       console.error(error);
       return res.status(ServerError).json({
@@ -36,4 +35,5 @@ class EbookController {
     }
   }
 }
+
 module.exports = EbookController;

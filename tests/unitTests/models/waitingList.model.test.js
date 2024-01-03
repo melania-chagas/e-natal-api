@@ -1,54 +1,72 @@
-const WaitingListModel = require('../../../src/backend/api/models/WaitingList.model');
-const { validFieldsUser, userId, ebookIdList, userBooks, userTitles, responseFindAllTitlesInListByUserId } = require('../mocks/mocks');
-const { findOrCreateUser, findEbookIdByTitle, insertIntoTableWatingList } = require('../../../src/backend/api/models/waitingListHelpers');
+const WaitingListModel = require(
+  '../../../src/backend/api/models/WaitingList.model'
+);
+const {
+  validFieldsUser,
+  userId,
+  ebookIdList,
+  userBooks,
+  userTitles,
+  responseFindAllTitlesInListByUserId
+} = require('../mocks/mocks');
+const {
+  findOrCreateUser,
+  findEbookIdByTitle,
+  insertIntoTableWatingList
+} = require('../../../src/backend/api/models/waitingListHelpers');
 const { WaitingList, Ebook } = require('../../../src/backend/database/models');
 
 
 jest.mock('../../../src/backend/api/models/waitingListHelpers', () => ({
-    findOrCreateUser: jest.fn(),
-    findEbookIdByTitle: jest.fn(),
-    insertIntoTableWatingList: jest.fn(),
+  findOrCreateUser: jest.fn(),
+  findEbookIdByTitle: jest.fn(),
+  insertIntoTableWatingList: jest.fn(),
 }));
 
 jest.mock('../../../src/backend/database/models', () => ({
-    WaitingList: {
-        findAll: jest.fn(),
-    },
-    Ebook: {
-        findAll: jest.fn(),
-    }
+  WaitingList: {
+    findAll: jest.fn(),
+  },
+  Ebook: {
+    findAll: jest.fn(),
+  }
 }));
 
 
 describe("Testes para os métodos da classe WaitingListModel", () => {
 
-    describe("addToWaitingList", () => {
+  describe("addToWaitingList", () => {
 
-        test("Deve inserir na tabela WaitingList os ebooks que um determinado usuário escolheu e retornar o userId.", async () => {
+    test(`Deve inserir na tabela WaitingList os ebooks que um determinado
+    usuário escolheu e retornar o userId.`, async () => {
+      findOrCreateUser.mockResolvedValue(userId);
+      findEbookIdByTitle.mockResolvedValue(ebookIdList);
+      insertIntoTableWatingList.mockResolvedValue();
+      
+      const { name, email, titles } = validFieldsUser;
+      const idUser = await WaitingListModel
+        .addToWaitingList(name, email, titles);
 
-            findOrCreateUser.mockResolvedValue(userId);
-            findEbookIdByTitle.mockResolvedValue(ebookIdList);
-            insertIntoTableWatingList.mockResolvedValue();
-            
-            const { name, email, titles } = validFieldsUser;
-            const idUser = await WaitingListModel.addToWaitingList(name, email, titles);
+      expect(findOrCreateUser).toHaveBeenCalledWith(name, email);
+      expect(findEbookIdByTitle).toHaveBeenCalledWith(titles);
+      expect(insertIntoTableWatingList)
+        .toHaveBeenCalledWith(userId, ebookIdList);
+      expect(idUser).toEqual(userId);
+    } );
+  });
 
-            expect(findOrCreateUser).toHaveBeenCalledWith(name, email);
-            expect(findEbookIdByTitle).toHaveBeenCalledWith(titles);
-            expect(insertIntoTableWatingList).toHaveBeenCalledWith(userId, ebookIdList);
-            expect(idUser).toEqual(userId);
-        })
+  describe("findAllTitlesInListByUserId", () => {
+
+    test("Deve buscar todos os ebooks (títulos) relacionados a um userId",
+    async () => {
+        WaitingList.findAll.mockResolvedValue(userBooks);
+        Ebook.findAll.mockResolvedValue(userTitles);
+
+        const titles = await WaitingListModel
+        .findAllTitlesInListByUserId(userId);
+
+        expect(titles).toEqual(responseFindAllTitlesInListByUserId);
     });
+  });
 
-    describe("findAllTitlesInListByUserId", () => {
-
-        test("Deve buscar todos os ebooks(títulos) relacionados a um userId", async () => {
-            WaitingList.findAll.mockResolvedValue(userBooks);
-            Ebook.findAll.mockResolvedValue(userTitles)
-
-            const titles = await WaitingListModel.findAllTitlesInListByUserId(userId);
-
-            expect(titles).toEqual(responseFindAllTitlesInListByUserId);
-        })
-    });
 });

@@ -7,9 +7,10 @@ const ebookRouter = express.Router();
 
 ebookRouter.get('/', EbookController.findAllEbooks);
 ebookRouter.post(
-    '/create',
-    basicAuth,
-    validateEbook,
-    EbookController.createEbook
+  '/create',
+  basicAuth,
+  validateEbook,
+  EbookController.createEbook
 );
+
 module.exports = ebookRouter;

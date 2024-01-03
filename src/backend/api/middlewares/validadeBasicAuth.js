@@ -10,7 +10,7 @@ const {
 const basicAuth = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
-  if (!authHeader || !authHeader.startsWith('Basic ')) {
+  if (!(authHeader && authHeader.startsWith('Basic '))) {
     return res.status(Unauthorized).json(authRequiredMsg);
   }
 
@@ -29,4 +29,5 @@ const basicAuth = (req, res, next) => {
     res.status(Unauthorized).json(userUnauthorizedMsg);
   }
 };
+
 module.exports = basicAuth;

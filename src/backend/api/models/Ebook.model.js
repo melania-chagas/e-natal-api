@@ -24,4 +24,5 @@ class EbookModel {
     return result.map(({ dataValues }) => dataValues);
   }
 }
+
 module.exports = EbookModel;

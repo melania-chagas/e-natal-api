@@ -4,6 +4,6 @@ const validateUser = require('../middlewares/validadeUser');
 
 const waitingList = express.Router();
 
-waitingList.post('/',validateUser, WaitingListController.addToWaitingList);
+waitingList.post('/', validateUser, WaitingListController.addToWaitingList);
 
 module.exports = waitingList;

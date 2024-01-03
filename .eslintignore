@@ -1,2 +1,1 @@
-src/backend/database/models
-src/backend/database/migrations
+src/backend/database

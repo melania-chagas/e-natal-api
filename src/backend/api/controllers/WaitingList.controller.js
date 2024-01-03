@@ -4,10 +4,10 @@ const { serverErrorMsg } = require('../helpers/errorMessages');
 
 
 class WaitingListController {
+
   static async addToWaitingList(req, res) {
     try {
       const { name, email, titles } = req.body;
-
       const { statusCode, message } = await WaitingListService.addToWaitingList(
         name,
         email,

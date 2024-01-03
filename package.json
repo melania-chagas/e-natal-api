@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "nodemon src/backend/server.js",
     "lint": "eslint",
-    "test": "jest",
+    "test": "jest --verbose",
     "test-coverage": "jest --coverage"
   },
   "devDependencies": {
