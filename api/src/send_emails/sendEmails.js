@@ -61,7 +61,7 @@ async function sendEmails(emails) {
 
 async function runsScheduledTask() {
   const emailsData = await emailsToSend();
-  if(emailsData.length === 0) {
+  if(!emailsData.length) {
     console.log('Nenhum pedido foi registrado na lista de espera');
     return;
   }
