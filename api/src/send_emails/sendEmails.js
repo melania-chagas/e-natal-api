@@ -1,24 +1,23 @@
 require('dotenv').config();
 const cron = require('node-cron');
 const nodemailer = require('nodemailer');
-const { scheduledDate, scheduledTime, timezone } = require('./config/config');
 const UserModel = require('../models/User.model');
 const WaitingListModel = require('../models/WaitingList.model');
 const { createEmailMessage } = require('./helpers/createEmailMessage');
 
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.ethereal.email',
+  port: 587,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+    user: process.env.ETHEREAL_EMAIL,
+    pass: process.env.ETHEREAL_PASS
+  }
 });
 
 
 async function emailsToSend() {
   const allUsers = await UserModel.getAllUsers();
-  
 
   const emailsData = await Promise.all(
   allUsers.map(async ({ id: userId, name, email: address }) => {
@@ -62,23 +61,29 @@ async function runsScheduledTask() {
     console.log('Nenhum pedido foi registrado na lista de espera');
     return;
   }
-  console.log('Enviando...');
+  console.log('Enviando emails...');
   const emailResponses = await sendEmails(emailsData);
   console.log(emailResponses);
-
 }
 
 
 function schedulesTask(){
+  const timezone = process.env.TIMEZONE;
+  const scheduledTime = process.env.SCHEDULED_TIME;
+  const scheduledDate = process.env.SCHEDULED_DATE;
+
   const [ hour, min, sec ] = scheduledTime.split(':');
   const [ , month, day ] = scheduledDate.split('/');
-  console.log('Agendando...');
-
+  
   cron.schedule(`${sec} ${min} ${hour} ${day} ${month} *`, () => {
     runsScheduledTask();
   }, {
     timezone
   });
+  console.log(
+    'Envio de emails agendado para o dia',
+    `${day}/${month} às ${hour}:${min}:${sec}`
+  );
 }
 
 module.exports = schedulesTask;
