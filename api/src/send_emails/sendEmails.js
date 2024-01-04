@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const UserModel = require('../models/User.model');
 const WaitingListModel = require('../models/WaitingList.model');
 const { createEmailMessage } = require('./helpers/createEmailMessage');
+const LogModel = require('../models/Log.model');
 
 
 const transporter = nodemailer.createTransport({
@@ -39,14 +40,17 @@ async function sendEmails(emails) {
     emails.map(async (email) => {
     const mailOptions = {
       to: email.address,
-      subject: 'eBooks',
+      subject: 'Presente de natal',
       text: email.body,
     };
     try {
-      await transporter.sendMail(mailOptions);
+      const info = await transporter.sendMail(mailOptions);
+      console.log(info);
+      LogModel.insertLogsIntoTable(email.address, true, info.response);
       return 'Enviado com sucesso para: ' + email.address;
 
     } catch (error) {
+      LogModel.insertLogsIntoTable(email.address, false, `${error}`);
       return 'Falha no envio para: ' + email.address + 'erro: ' + error;
     }
   }));
