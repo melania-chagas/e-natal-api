@@ -3,9 +3,14 @@ Solução eficiente para o envio de ebooks (via e-mail) como presentes natalinos
 ***
 
 ### Requisitos
-Certifique-se de ter instalado:
 
-- [Docker](https://www.docker.com/)
+Foram utilizados no projeto:
+
+- Docker 24.0.7
+- Docker Compose v2.21.0
+
+
+
 
 
 ### Instalação
@@ -27,8 +32,15 @@ cd e-natal-api
 
 ### Configure as variáveis de ambiente
 3. Renomeie o arquivo '.env.example', que está na raiz do projeto, para '.env'.
+4. As variáveis `ETHEREAL_EMAIL` e `ETHEREAL_PASS` foram preenchidas com  email e senha temporários, disponibilizados pelo [Ethereal](https://ethereal.email/), para fins de teste.
+5. As variáveis `SCHEDULED_TIME` e `SCHEDULED_DATE` foram preenchidas com a data do próximo Natal. Você pode alterá-las respeitando o formato ``HH:MM:SS`` e ``AAAA/MM/DD``, respectivamente.
+
+
+
+
+
 ### Execute a aplicação
-4. Inicie os serviços da aplicação via Docker:
+6. Inicie os serviços da aplicação via Docker:
 ```bash
 docker compose up
 ```
