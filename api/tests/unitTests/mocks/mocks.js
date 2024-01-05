@@ -356,6 +356,18 @@ const paramsMockLogs = {
   ZZgIz.ruXtLvjzUSAAAADAhDkD4ErjeoucjfYAEfczQ]`
 };
 
+const paramsCreateEmailMessage = {
+  name: 'fulano',
+  titles: ['Orgulho e Preconceito', 'Emma']
+};
+
+const expectedEmailMessage = `Olá, Fulano!
+Aqui estão todos os presentes que prometi:
+- Orgulho e Preconceito
+- Emma
+Espero que goste! Boa leitura!
+Atenciosamente,
+Papai Noel.`;
 
 module.exports = {
   validFieldsEbook,
@@ -393,5 +405,7 @@ module.exports = {
   responseFindAllLogs,
   errorFindAllLogs,
   allLogsData,
-  paramsMockLogs
+  paramsMockLogs,
+  paramsCreateEmailMessage,
+  expectedEmailMessage
 };
