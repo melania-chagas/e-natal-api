@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "nodemon api/src/server.js",
+    "dev": "node api/src/server.js",
     "lint": "eslint",
     "test": "jest --verbose"
   },

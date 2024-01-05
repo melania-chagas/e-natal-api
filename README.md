@@ -174,7 +174,6 @@ docker compose up
 #### Response
 ```json
 [
-  
   {
     "id": 1,
     "email": "fulano@email.com",

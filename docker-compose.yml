@@ -9,14 +9,6 @@ services:
     depends_on:
       mysql:
         condition: service_healthy
-    environment: 
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_HOST=${MYSQL_HOST}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_PORT=${MYSQL_PORT}
-    volumes:
-      - .:/app
     command: >
       sh -c "npx sequelize-cli db:drop &&
              npx sequelize-cli db:create &&
@@ -26,13 +18,17 @@ services:
     image: mysql:8.0.21
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_PORT=${MYSQL_PORT}
     ports:
         - "3002:3306"
     restart: 'always'
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 10s
       retries: 5
     cap_add:
-      - SYS_NICE # Deve omitir alertas menores
+      - SYS_NICE
