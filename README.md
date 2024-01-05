@@ -47,12 +47,12 @@ docker compose up
 ---
 ### Rest API
 
-#### 📚 Ebooks: http://localhost:3001/ebook
+#### 📚 Ebooks
 <details>
   <summary>Listar todos os ebooks</summary>
 
 #### Request
-`GET /`
+`GET` ``http://localhost:3001/ebook``
 
 
 #### Response
@@ -90,9 +90,9 @@ docker compose up
   <summary>Cadastrar um novo ebook</summary>
 
 #### Request
-`POST /create`
+`POST` ``http://localhost:3001/ebook/create``
 
-Preencha a autenticação básica com os dados do Santa Claus presentes no arquivo '.env'.
+⚠️ Preencha a autenticação básica com os dados do Santa Claus presentes no arquivo '.env'.
 
 ```json
   {
@@ -112,25 +112,25 @@ Preencha a autenticação básica com os dados do Santa Claus presentes no arqui
 ```
 </details>
 
-#### 📋 WaitingList: http://localhost:3001/waitingList
+#### 📋 WaitingList
 <details>
   <summary>Entrar na lista de espera de presentes</summary>
 
 #### Request
-`POST /waitingList`
+`POST`  ``http://localhost:3001/waitingList``
 
 ```json
 {
-  "name": "Melania Chagas",
-  "email": "melania@email.com",
+  "name": "Fulano",
+  "email": "fulano@email.com",
   "titles":["Orgulho e Preconceito", "Emma"]
 }
 ```
 #### Response
 ```json
 {
-  "name": "Melania Chagas",
-  "email": "melania@email.com",
+  "name": "Fulano",
+  "email": "fulano@email.com",
   "titleList": [
     "Orgulho e Preconceito",
     "Emma"
@@ -139,21 +139,20 @@ Preencha a autenticação básica com os dados do Santa Claus presentes no arqui
 ```
 ---
 #### Request
-`POST /waitingList`
-
+`POST`  ``http://localhost:3001/waitingList``
 
 ```json
 {
-  "name": "Melania Chagas",
-  "email": "melania@email.com",
+  "name": "Fulano",
+  "email": "fulano@email.com",
   "titles": "Persuasão"
 }
 ```
 #### Response
 ```json
 {
-  "name": "Melania Chagas",
-  "email": "melania@email.com",
+  "name": "Fulano",
+  "email": "fulano@email.com",
   "titleList": [
     "Orgulho e Preconceito",
     "Emma",
@@ -161,5 +160,40 @@ Preencha a autenticação básica com os dados do Santa Claus presentes no arqui
   ]
 }
 ```
+</details>
+
+#### 📜  Logs
+<details>
+  <summary>Listar todos os logs </summary>
+
+  #### Request
+`GET` ``http://localhost:3001/log``
+
+⚠️ Preencha a autenticação básica com os dados do Santa Claus presentes no arquivo '.env'.
+
+#### Response
+```json
+[
+  
+  {
+    "id": 1,
+    "email": "fulano@email.com",
+    "success": 1,
+    "message": "250 Accepted [STATUS=new MSGID=ZZb8KUTysrzrX9mZZZcvE.ruXtLvjd49AAAACicfM6lnv2yJqhTaIyTQF6g]",
+    "createdAt": "2024-01-04T22:20:03.000Z",
+    "updatedAt": "2024-01-04T22:20:03.000Z"
+  },
+  {
+    "id": 2,
+    "email": "fulano@email.com",
+    "success": 0,
+    "message": "Error: No recipients defined",
+    "createdAt": "2024-01-04T22:29:02.000Z",
+    "updatedAt": "2024-01-04T22:29:02.000Z"
+  },
+]
+```
+
+
 </details>
 
