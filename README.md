@@ -194,6 +194,10 @@ docker compose up
 ]
 ```
 
-
 </details>
+
+---
+
+### Testes
+Testes unitários estão disponíveis. Execute `npm test` na raiz do projeto.
 
