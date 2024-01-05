@@ -8,7 +8,7 @@ const {
   validFieldsEbook,
   responseCreateEbook,
   errorCreateEbook,
-  responseFindAllBooks,
+  responseFindAllEbooks,
   errorFindAllEbooks
 } = require('../mocks/mocks');
 const { Created, ServerError, OK } = require(
@@ -80,14 +80,14 @@ describe('Testes para EbookController.findAllEbooks', () => {
 
     EbookService.findAllEbooks.mockResolvedValueOnce({
       statusCode: OK,
-      message: responseFindAllBooks
+      message: responseFindAllEbooks
     });
 
     await EbookController.findAllEbooks(req, res);
 
     expect(EbookService.findAllEbooks).toHaveBeenCalled();
     expect(res.status).toHaveBeenCalledWith(OK);
-    expect(res.json).toHaveBeenCalledWith(responseFindAllBooks);
+    expect(res.json).toHaveBeenCalledWith(responseFindAllEbooks);
   });
 
 

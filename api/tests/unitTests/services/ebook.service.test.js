@@ -3,7 +3,7 @@ const EbookModel = require('../../../src/models/Ebook.model');
 const {
   validFieldsEbook,
   responseCreateEbook,
-  responseFindAllBooks
+  responseFindAllEbooks
 } = require('../mocks/mocks');
 const { ebookAlreadyRegisteredMsg } = require(
   '../../../src/helpers/errorMessages'
@@ -46,7 +46,7 @@ describe('Testes para EbookService.createEbook', () => {
 describe('Testes para EbookService.findAllEbooks', () => {
   test(`Deve retornar statusCode 'OK' e uma lista com todos os ebooks já
   cadastrados no banco de dados`, async () => {
-    const allEbooks = responseFindAllBooks;
+    const allEbooks = responseFindAllEbooks;
 
     EbookModel.findAllEbooks.mockResolvedValueOnce(allEbooks);
 

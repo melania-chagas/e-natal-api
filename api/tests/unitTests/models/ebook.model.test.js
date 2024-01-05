@@ -4,7 +4,7 @@ const {
   ebookAlreadyExists,
   responseFindEbookByTitle,
   ebooksData,
-  responseFindAllBooks
+  responseFindAllEbooks
 } = require('../mocks/mocks');
 const { Ebook } = require('../../../src/database/models');
 
@@ -68,7 +68,7 @@ describe('Testes para EbookModel', () => {
       Ebook.findAll.mockResolvedValue(ebooksData);
 
       const allEbooks = await EbookModel.findAllEbooks();
-      expect(allEbooks).toEqual(responseFindAllBooks);
+      expect(allEbooks).toEqual(responseFindAllEbooks);
     });
   });
  

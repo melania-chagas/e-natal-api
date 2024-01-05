@@ -45,7 +45,7 @@ async function sendEmails(emails) {
     };
     try {
       const info = await transporter.sendMail(mailOptions);
-      console.log(info);
+      // console.log(info);
       LogModel.insertLogsIntoTable(email.address, true, info.response);
       return 'Enviado com sucesso para: ' + email.address;
 

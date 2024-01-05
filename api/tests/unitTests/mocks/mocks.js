@@ -50,7 +50,7 @@ const responseCreateEbook = {
 
 const errorCreateEbook = 'Erro durante a criação do ebook';
 
-const responseFindAllBooks = [
+const responseFindAllEbooks = [
   {
     "id": 1,
     title: "Orgulho e Preconceito",
@@ -265,7 +265,98 @@ const userTitles =  [
 ];
 
 const responseFindAllTitlesInListByUserId = ["Emma"];
-    
+
+const responseFindAllLogs = [
+  {
+    "id": 1,
+    "email": "fulano@email.com",
+    "success": 1,
+    "message": `250 Accepted [STATUS=new MSGID=ZZb8KUTysrzrX9mZ
+    ZZcvE.ruXtLvjd49AAAACicfM6lnv2yJqhTaIyTQF6g]`,
+    "createdAt": "2024-01-04T22:20:03.000Z",
+    "updatedAt": "2024-01-04T22:20:03.000Z"
+  },
+  {
+    "id": 2,
+    "email": "fulano@email.com",
+    "success": 0,
+    "message": "Error: No recipients defined",
+    "createdAt": "2024-01-04T22:29:02.000Z",
+    "updatedAt": "2024-01-04T22:29:02.000Z"
+  },
+];
+
+const errorFindAllLogs = 'Erro durante a busca por todos os logs';
+
+const allLogsData =  [
+  {
+    dataValues: {
+      id: 1,
+      email: 'fulano@email.com',
+      success: 1,
+      message: `250 Accepted [STATUS=new MSGID=ZZb8KUTysrzrX9mZ
+    ZZcvE.ruXtLvjd49AAAACicfM6lnv2yJqhTaIyTQF6g]`,
+      createdAt: '2024-01-04T22:20:03.000Z',
+      updatedAt: '2024-01-04T22:20:03.000Z'
+    },
+    _previousDataValues: {
+      id: 1,
+      email: 'fulano@email.com',
+      success: 1,
+      message: `250 Accepted [STATUS=new MSGID=ZZb8KUTysrzrX9mZ
+    ZZcvE.ruXtLvjd49AAAACicfM6lnv2yJqhTaIyTQF6g]`,
+      createdAt: '2024-01-04T22:20:03.000Z',
+      updatedAt: '2024-01-04T22:20:03.000Z'
+    },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      raw: true,
+      attributes: [Array]
+    },
+    isNewRecord: false
+  },
+  {
+    dataValues: {
+      id: 2,
+      email: 'fulano@email.com',
+      success: 0,
+      message: 'Error: No recipients defined',
+      createdAt: '2024-01-04T22:29:02.000Z',
+      updatedAt: '2024-01-04T22:29:02.000Z'
+    },
+    _previousDataValues: {
+      id: 2,
+      email: 'fulano@email.com',
+      success: 0,
+      message: 'Error: No recipients defined',
+      createdAt: '2024-01-04T22:29:02.000Z',
+      updatedAt: '2024-01-04T22:29:02.000Z'
+    },
+    uniqno: 1,
+    _changed: new Set(),
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      raw: true,
+      attributes: [Array]
+    },
+    isNewRecord: false
+  }
+];
+
+const paramsMockLogs = {
+  email: 'fulano@email.com',
+  success: true,
+  message: `250 Accepted [STATUS=new MSGID=ZZb8KUTysrzrX9mZ
+  ZZgIz.ruXtLvjzUSAAAADAhDkD4ErjeoucjfYAEfczQ]`
+};
+
+
 module.exports = {
   validFieldsEbook,
   invalidFieldsEbook,
@@ -280,7 +371,7 @@ module.exports = {
   generateAuthHeader,
   responseCreateEbook,
   errorCreateEbook,
-  responseFindAllBooks,
+  responseFindAllEbooks,
   errorFindAllEbooks,
   validFieldsAddToWaitingList,
   responseAddToWaitingList,
@@ -298,5 +389,9 @@ module.exports = {
   ebookIdList,
   userBooks,
   userTitles,
-  responseFindAllTitlesInListByUserId
+  responseFindAllTitlesInListByUserId,
+  responseFindAllLogs,
+  errorFindAllLogs,
+  allLogsData,
+  paramsMockLogs
 };
